@@ -5,6 +5,7 @@ dotenv.config();
 
 import express from 'express';
 import routes from './routes/index.js';
+import cors from 'cors';
 import { sequelize } from './models/index.js';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +18,7 @@ const PORT = process.env.PORT || 3001;
 // Serves static files in the entire client's dist folder
 app.use(express.static(path.join(__dirname,'../client/dist')));
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 app.get('*', (_req, res) => {
