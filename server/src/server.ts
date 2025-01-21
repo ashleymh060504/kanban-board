@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Serves static files in the entire client's dist folder
-app.use(express.static(path.join(__dirname,'../client/dist')));
+app.use(express.static(path.join(__dirname,'../../client/dist')));
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.json());
